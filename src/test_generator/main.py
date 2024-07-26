@@ -6,8 +6,8 @@ from rich.console import Console
 from rich.panel import Panel
 from rich.progress import Progress, SpinnerColumn, TextColumn, BarColumn
 
-from .generator import ModelType
-from .test_processor import TestProcessor
+from generator import ModelType
+from test_processor import TestProcessor
 
 console = Console()
 

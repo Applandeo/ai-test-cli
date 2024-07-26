@@ -68,12 +68,12 @@ class OpenAITestGenerator(TestGenerator):
 
 
 class OllamaTestGenerator(TestGenerator):
-    def __init__(self, model: str = 'codellama'):
+    def __init__(self, model: str = 'codestral'):
         self.model = model
 
     def generate(self, prompt: str) -> str:
         try:
-            response = ollama.generate(model=self.model, prompt=prompt)
+            response = ollama.generate(self.model, prompt)
             return response['response']
         except Exception as e:
             return f"Error generating tests: {str(e)}"
