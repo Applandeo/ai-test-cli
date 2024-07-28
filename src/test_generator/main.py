@@ -16,7 +16,7 @@ def main():
     parser = argparse.ArgumentParser(description="Process a file using specified LLM model")
     parser.add_argument("input_path", help="Path to the input file")
     parser.add_argument("-o", "--output", help="Path to the output file (optional)")
-    parser.add_argument("-m", "--model", type=ModelType, choices=list(map(lambda x: x.value, ModelType)),
+    parser.add_argument("-m", "--model", type=ModelType, choices=list(ModelType),
                         default=ModelType.SONNET, help="LLM model to use (default: sonnet3.5)")
     parser.add_argument("-e", "--example", help="Path to the example test file (optional)")
 
