@@ -17,10 +17,14 @@ class ModelType(Enum):
 
 
 class Generator:
-    def __init__(self, console: Console, class_code: str, sample: Optional[str] = None,
+    def __init__(self, console: Console,
+                 class_code: str,
+                 context_code: [str] = None,
+                 sample: Optional[str] = None,
                  model: ModelType = ModelType.SONNET):
         self.console = console
         self.class_code = class_code
+        self.context_code = "\n".join(context_code) if context_code else "No contextual code provided."
         self.sample = sample or "No example provided."
         self.model = model
         self.settings = Settings()
@@ -44,7 +48,8 @@ class Generator:
             You are an AI model designed to help write unit tests for a provided class. The user will supply one or two pieces of information:
             1. A class for which unit tests need to be written.
             2. (Optional) An example unit tests class that demonstrates the structure and style of the tests.
-            
+            3. (Optional) The contextual code to better understand the class from point 1.
+
             Your task is to generate unit tests for the provided class. If an example unit tests class is provided, ensure that the tests adhere to the same style, structure, and level of detail as the example. Additionally, use the Given-When-Then format to explain each test case and ensure that edge cases are considered. Follow best practices for writing tests, ensuring the generated code is clean and easy for developers to read.
             
             **Instructions:**
@@ -72,12 +77,18 @@ class Generator:
             13. Consider how the tests would run in a Continuous Integration (CI) environment and add any necessary setup or configuration as code or configuration files.
             14. Ensure the tests are clear, readable, and maintain consistency.
             15. Include necessary imports, setup methods, and assertions. If an example unit tests class is provided, follow its conventions.
+            16. Do not test contextual code!
             
             **Example:**
             
             - **Provided Class:**
             ```
             {self.class_code}
+            ```
+            
+            - **(Optional) Contextual code:**
+            ```
+            {self.context_code}
             ```
             
             - **(Optional) Example Unit Tests Class:**

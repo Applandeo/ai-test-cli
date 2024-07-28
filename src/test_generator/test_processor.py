@@ -1,6 +1,6 @@
 # file_processor.py
 from pathlib import Path
-from typing import Optional
+from typing import Optional, List
 
 import pyperclip
 from rich.console import Console
@@ -11,7 +11,7 @@ from generator import ModelType, Generator
 
 
 class TestProcessor:
-    def __init__(self, console: Console, input_path: Path, example_path: Optional[Path], output_path: Optional[Path],
+    def __init__(self, console: Console, input_path: Path, example_path: Optional[Path], context_paths: List[Path], output_path: Optional[Path],
                  model: ModelType, progress: Progress):
         self.console = console
         self.input_path = input_path
@@ -19,6 +19,7 @@ class TestProcessor:
         self.output_path = output_path
         self.model = model
         self.progress = progress
+        self.context_paths = context_paths
 
     def process(self):
         task = self.progress.add_task("[cyan]Processing...", total=100)
@@ -28,10 +29,13 @@ class TestProcessor:
         self.progress.update(task, description="[cyan]Reading example file (if provided)...", advance=10)
         example = self.__read_file(self.example_path) if self.example_path else ""
 
-        self.progress.update(task, description=f"[cyan]Generating tests using {self.model.value}...", advance=10)
-        processed_content = self.__process_with_llm(content, example)
+        self.progress.update(task, description="[cyan]Reading context files...", advance=10)
+        context_contents = self.__read_context_files() if self.context_paths else None
 
-        self.progress.update(task, description="[cyan]Outputting result...", advance=60)
+        self.progress.update(task, description=f"[cyan]Generating tests using {self.model.value}...", advance=10)
+        processed_content = self.__process_with_llm(content, example, context_contents)
+
+        self.progress.update(task, description="[cyan]Outputting result...", advance=50)
         self.__output_result(processed_content)
 
         self.progress.update(task, description="[green]Processing complete!", advance=10)
@@ -49,8 +53,16 @@ class TestProcessor:
                                      title="File Read Error", expand=False))
             return ""
 
-    def __process_with_llm(self, content: str, example: str) -> str:
-        test_generator = Generator(self.console, content, example, self.model)
+    def __read_context_files(self) -> List[str]:
+        context_contents = []
+        for path in self.context_paths:
+            content = self.__read_file(path)
+            if content:
+                context_contents.append(content)
+        return context_contents
+
+    def __process_with_llm(self, content: str, example: str, context_contents: List[str]) -> str:
+        test_generator = Generator(self.console, content, example, context_contents, self.model)
         return test_generator.generate_tests()
 
     def __output_result(self, processed_content: str):
