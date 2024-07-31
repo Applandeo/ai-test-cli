@@ -20,12 +20,14 @@ class Generator:
     def __init__(self, console: Console,
                  class_code: str,
                  context_code: [str] = None,
+                 instruction: str = None,
                  sample: Optional[str] = None,
                  model: ModelType = ModelType.SONNET):
         self.console = console
         self.class_code = class_code
         self.context_code = "\n".join(context_code) if context_code else "No contextual code provided."
         self.sample = sample or "No example provided."
+        self.instruction = instruction
         self.model = model
         self.settings = Settings()
         self.generator = self.__get_generator()
@@ -77,7 +79,9 @@ class Generator:
             13. Consider how the tests would run in a Continuous Integration (CI) environment and add any necessary setup or configuration as code or configuration files.
             14. Ensure the tests are clear, readable, and maintain consistency.
             15. Include necessary imports, setup methods, and assertions. If an example unit tests class is provided, follow its conventions.
-            16. Do not test contextual code!
+            
+            **Additional instructions:**
+            {self.instruction}
             
             **Example:**
             

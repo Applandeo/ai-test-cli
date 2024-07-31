@@ -11,7 +11,7 @@ from generator import ModelType, Generator
 
 
 class TestProcessor:
-    def __init__(self, console: Console, input_path: Path, example_path: Optional[Path], context_paths: List[Path], output_path: Optional[Path],
+    def __init__(self, console: Console, input_path: Path, example_path: Optional[Path], context_paths: List[Path], instruction: str, output_path: Optional[Path],
                  model: ModelType, progress: Progress):
         self.console = console
         self.input_path = input_path
@@ -20,6 +20,7 @@ class TestProcessor:
         self.model = model
         self.progress = progress
         self.context_paths = context_paths
+        self.instruction = instruction
 
     def process(self):
         task = self.progress.add_task("[cyan]Processing...", total=100)
@@ -33,7 +34,7 @@ class TestProcessor:
         context_contents = self.__read_context_files() if self.context_paths else None
 
         self.progress.update(task, description=f"[cyan]Generating tests using {self.model.value}...", advance=10)
-        processed_content = self.__process_with_llm(content, example, context_contents)
+        processed_content = self.__process_with_llm(content, example, context_contents, self.instruction)
 
         self.progress.update(task, description="[cyan]Outputting result...", advance=50)
         self.__output_result(processed_content)
@@ -61,8 +62,8 @@ class TestProcessor:
                 context_contents.append(content)
         return context_contents
 
-    def __process_with_llm(self, content: str, example: str, context_contents: List[str]) -> str:
-        test_generator = Generator(self.console, content, example, context_contents, self.model)
+    def __process_with_llm(self, content: str, example: str, context_contents: List[str], instruction: str) -> str:
+        test_generator = Generator(self.console, content, example, context_contents, instruction, self.model)
         return test_generator.generate_tests()
 
     def __output_result(self, processed_content: str):
