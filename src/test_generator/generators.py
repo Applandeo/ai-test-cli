@@ -77,12 +77,3 @@ class OllamaTestGenerator(TestGenerator):
             return response['response']
         except Exception as e:
             return f"Error generating tests: {str(e)}"
-
-
-def print_ollama_models():
-    client = ollama.Client()
-    models = client.list()
-
-    for model in models['models']:
-        print(f"Nazwa: {model['name']}, Rozmiar: {model['size']}, Ostatnia modyfikacja: {model['modified_at']}")
-

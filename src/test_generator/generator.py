@@ -27,7 +27,7 @@ class Generator:
         self.class_code = class_code
         self.context_code = "\n".join(context_code) if context_code else "No contextual code provided."
         self.sample = sample or "No example provided."
-        self.instruction = instruction
+        self.instruction = instruction or "No additional instruction provided."
         self.model = model
         self.settings = Settings()
         self.generator = self.__get_generator()

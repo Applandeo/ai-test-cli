@@ -11,7 +11,11 @@ from generator import ModelType, Generator
 
 
 class TestProcessor:
-    def __init__(self, console: Console, input_path: Path, example_path: Optional[Path], context_paths: List[Path], instruction: str, output_path: Optional[Path],
+    def __init__(self, console: Console,
+                 input_path: Path,
+                 example_path: Optional[Path],
+                 context_paths: List[Path],
+                 instruction: str, output_path: Optional[Path],
                  model: ModelType, progress: Progress):
         self.console = console
         self.input_path = input_path

@@ -20,7 +20,7 @@ def main():
                         default=ModelType.SONNET, help="LLM model to use (default: sonnet3.5)")
     parser.add_argument("-e", "--example", help="Path to the example test file (optional)")
     parser.add_argument("-c", "--context", nargs='+', help="List of paths to context files e.g. -c file1.py file2.py")
-    parser.add_argument("-i", "--instruction", nargs='+', help="Additional instructions e.g -i 'Use mocktail lib'")
+    parser.add_argument("-i", "--instruction", nargs='+', help="Additional instructions e.g. -i 'Use mocktail lib'")
 
     args = parser.parse_args()
 
