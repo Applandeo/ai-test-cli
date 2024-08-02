@@ -5,11 +5,10 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="f57dff47-9525-4f96-bc1f-2c4521092eb3" name="Changes" comment="Project init">
+      <change afterPath="$PROJECT_DIR$/src/tests/__init__.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/tests/simple_function/ArrayExtensions.swift" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/tests/simple_function/ListExtensions.kt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test_generator/generator.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/test_generator/generator.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test_generator/generators.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/test_generator/generators.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test_generator/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/test_generator/main.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test_generator/test_processor.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/test_generator/test_processor.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -39,9 +38,9 @@
   </component>
   <component name="PropertiesComponent"><![CDATA[{
   "keyToString": {
-    "Python.main.executor": "Debug",
+    "Python.main.executor": "Run",
     "RunOnceActivity.ShowReadmeOnStart": "true",
-    "git-widget-placeholder": "main",
+    "git-widget-placeholder": "contextual__code",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
@@ -71,7 +70,7 @@
       <option name="ADD_SOURCE_ROOTS" value="true" />
       <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
       <option name="SCRIPT_NAME" value="$PROJECT_DIR$/src/test_generator/main.py" />
-      <option name="PARAMETERS" value="$PROJECT_DIR$/../../android-base/BeekeeperSDK/clients-multiplatform-base/shared/src/commonMain/kotlin/ch/beekeeper/clients/shared/sdk/utils/uri/CommonUri.kt -m ollama" />
+      <option name="PARAMETERS" value="$PROJECT_DIR$/src/tests/simple_function/ArrayExtensions.swift -m ollama" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
       <option name="MODULE_MODE" value="false" />
@@ -154,6 +153,6 @@
     </breakpoint-manager>
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
-    <SUITE FILE_PATH="coverage/TestsCLI$main.coverage" NAME="main Coverage Results" MODIFIED="1721980046295" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/TestsCLI$main.coverage" NAME="main Coverage Results" MODIFIED="1722602977695" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
   </component>
 </project>
