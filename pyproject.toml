@@ -13,7 +13,7 @@ classifiers = [
     "Operating System :: OS Independent",
 ]
 packages = [
-    { include = "test_generator", from = "src" },
+    { include = "test_generator" },
 ]
 
 [tool.poetry.dependencies]

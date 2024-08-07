@@ -4,8 +4,8 @@ from typing import Optional
 
 from rich.console import Console
 
-from generators import TestGenerator, AnthropicTestGenerator, OpenAITestGenerator, OllamaTestGenerator
-from settings import Settings
+from test_generator.generators import TestGenerator, AnthropicTestGenerator, OpenAITestGenerator, OllamaTestGenerator
+from test_generator.settings import Settings
 
 
 class ModelType(Enum):
@@ -13,7 +13,6 @@ class ModelType(Enum):
     GPT4 = "gpt4o"
     OLLAMA = "ollama"
     CODESTRAL = "codestral"
-    STARCODER2 = "starcoder2:3b"
 
 
 class Generator:
@@ -40,8 +39,6 @@ class Generator:
             return OpenAITestGenerator(self.settings.OPENAI_API_KEY, self.settings.OPENAI_ORG_ID)
         elif self.model == ModelType.OLLAMA or self.model == ModelType.CODESTRAL:
             return OllamaTestGenerator()
-        elif self.model == ModelType.STARCODER2:
-            return OllamaTestGenerator(model=ModelType.STARCODER2.value)
         else:
             raise ValueError(f"Unsupported model: {self.model}")
 

@@ -7,7 +7,7 @@ from rich.console import Console
 from rich.panel import Panel
 from rich.progress import Progress
 
-from generator import ModelType, Generator
+from test_generator.generator import ModelType, Generator
 
 
 class TestProcessor:
