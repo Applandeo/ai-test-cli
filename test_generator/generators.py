@@ -1,10 +1,12 @@
+import importlib
 from abc import ABC, abstractmethod
 
 import anthropic
 import openai
 from openai import OpenAI
-import ollama
 from typing import List, Any
+import importlib.util
+import sys
 
 
 class CodeNotFoundException(Exception):
@@ -70,10 +72,19 @@ class OpenAITestGenerator(TestGenerator):
 class OllamaTestGenerator(TestGenerator):
     def __init__(self, model: str = 'codestral'):
         self.model = model
+        self._check_ollama_installed()
+
+    @staticmethod
+    def _check_ollama_installed():
+        if importlib.util.find_spec("ollama") is None:
+            sys.exit(1)
 
     def generate(self, prompt: str) -> str:
         try:
+            import ollama
             response = ollama.generate(self.model, prompt)
             return response['response']
+        except ImportError:
+            return "Error: Ollama is not installed. Please install it using: pip install ollama"
         except Exception as e:
             return f"Error generating tests: {str(e)}"

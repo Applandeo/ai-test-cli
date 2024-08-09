@@ -42,17 +42,24 @@ def main():
                         f"Instruction: [bold]{instruction or 'Not provided'}[/bold]\n",
                         title="File Processing", expand=False))
 
-    with Progress(
-            SpinnerColumn(),
-            TextColumn("[progress.description]{task.description}"),
-            BarColumn(),
-            TextColumn("[progress.percentage]{task.percentage:>3.0f}%"),
-            console=console
-    ) as progress:
-        processor = TestProcessor(console, input_path, example_path, context_paths, instruction, output_path, args.model, progress)
-        processor.process()
+    try:
+        with Progress(
+                SpinnerColumn(),
+                TextColumn("[progress.description]{task.description}"),
+                BarColumn(),
+                TextColumn("[progress.percentage]{task.percentage:>3.0f}%"),
+                console=console
+        ) as progress:
+            processor = TestProcessor(console, input_path, example_path, context_paths, instruction, output_path,
+                                      args.model, progress)
+            processor.process()
 
-    console.print("[bold green]Processing complete![/bold green]")
+    except SystemExit:
+        console.print("[bold red]An error occurred. Please check the messages above.[/bold red]")
+    except Exception as e:
+        console.print(f"[bold red]An unexpected error occurred: {str(e)}[/bold red]")
+    finally:
+        console.print("[bold green]Processing complete![/bold green]")
 
 
 if __name__ == "__main__":

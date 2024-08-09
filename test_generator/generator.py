@@ -12,7 +12,6 @@ class ModelType(Enum):
     SONNET = "sonnet3.5"
     GPT4 = "gpt4o"
     OLLAMA = "ollama"
-    CODESTRAL = "codestral"
 
 
 class Generator:
@@ -37,7 +36,7 @@ class Generator:
             return AnthropicTestGenerator(self.settings.ANTHROPIC_API_KEY)
         elif self.model == ModelType.GPT4:
             return OpenAITestGenerator(self.settings.OPENAI_API_KEY, self.settings.OPENAI_ORG_ID)
-        elif self.model == ModelType.OLLAMA or self.model == ModelType.CODESTRAL:
+        elif self.model == ModelType.OLLAMA or self.model == ModelType.OLLAMA:
             return OllamaTestGenerator()
         else:
             raise ValueError(f"Unsupported model: {self.model}")
