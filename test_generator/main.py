@@ -24,6 +24,7 @@ def main():
     args = parser.parse_args()
 
     input_path = Path(args.input_path)
+    model = args.model
     output_path = Path(args.output) if args.output else None
     example_path = Path(args.example) if args.example else None
     context_paths = [Path(path) for path in args.context] if args.context else []
@@ -51,15 +52,13 @@ def main():
                 console=console
         ) as progress:
             processor = TestProcessor(console, input_path, example_path, context_paths, instruction, output_path,
-                                      args.model, progress)
+                                      model, progress)
             processor.process()
 
     except SystemExit:
         console.print("[bold red]An error occurred. Please check the messages above.[/bold red]")
     except Exception as e:
         console.print(f"[bold red]An unexpected error occurred: {str(e)}[/bold red]")
-    finally:
-        console.print("[bold green]Processing complete![/bold green]")
 
 
 if __name__ == "__main__":

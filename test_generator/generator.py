@@ -9,18 +9,47 @@ from test_generator.settings import Settings
 
 
 class ModelType(Enum):
+    """Enum representing different AI model types for test generation."""
     SONNET = "sonnet3.5"
     GPT4 = "gpt4o"
     OLLAMA = "ollama"
 
 
 class Generator:
+    """
+    A class to generate unit tests for a given class using various AI models.
+
+    This class encapsulates the logic for creating prompts and generating unit tests
+    using different AI models such as Anthropic's Claude 3 Sonnet, OpenAI's GPT-4o, or Ollama.
+
+    Attributes:
+        console (Console): Rich console for output formatting.
+        class_code (str): The code of the class for which tests are to be generated.
+        context_code (str): Additional contextual code to understand the class.
+        sample (str): An optional sample of existing unit tests to guide the style.
+        instruction (str): Additional instructions for test generation.
+        model (ModelType): The AI model to use for generation.
+        settings (Settings): Configuration settings for API keys and other parameters.
+        generator (TestGenerator): The specific test generator based on the chosen model.
+    """
+
     def __init__(self, console: Console,
                  class_code: str,
                  context_code: [str] = None,
                  instruction: str = None,
                  sample: Optional[str] = None,
                  model: ModelType = ModelType.SONNET):
+        """
+        Initialize the Generator with the necessary parameters.
+
+        Args:
+            console (Console): Rich console for output formatting.
+            class_code (str): The code of the class for which tests are to be generated.
+            context_code (List[str], optional): Additional contextual code. Defaults to None.
+            instruction (str, optional): Additional instructions for test generation. Defaults to None.
+            sample (str, optional): An example of existing unit tests. Defaults to None.
+            model (ModelType, optional): The AI model to use. Defaults to ModelType.SONNET.
+        """
         self.console = console
         self.class_code = class_code
         self.context_code = "\n".join(context_code) if context_code else "No contextual code provided."
@@ -31,6 +60,15 @@ class Generator:
         self.generator = self.__get_generator()
 
     def __get_generator(self) -> TestGenerator:
+        """
+        Create and return the appropriate TestGenerator based on the selected model.
+
+        Returns:
+            TestGenerator: An instance of the appropriate TestGenerator subclass.
+
+        Raises:
+            ValueError: If an unsupported model type is specified.
+        """
         self.console.print(f"[cyan]Initializing {self.model.value} generator...")
         if self.model == ModelType.SONNET:
             return AnthropicTestGenerator(self.settings.ANTHROPIC_API_KEY)
@@ -42,6 +80,16 @@ class Generator:
             raise ValueError(f"Unsupported model: {self.model}")
 
     def __create_prompt(self) -> str:
+        """
+        Create a detailed prompt for the AI model to generate unit tests.
+
+        This method constructs a comprehensive prompt that includes instructions
+        for generating unit tests, the class code, contextual code, and any
+        provided examples or additional instructions.
+
+        Returns:
+            str: A formatted string containing the complete prompt for the AI model.
+        """
         return textwrap.dedent(f"""
             You are an AI model designed to help write unit tests for a provided class. The user will supply one or two pieces of information:
             1. A class for which unit tests need to be written.
@@ -110,8 +158,18 @@ class Generator:
             """)
 
     def generate_tests(self) -> str:
+        """
+        Generate unit tests using the configured AI model.
+
+        This method creates the prompt, sends it to the appropriate AI model,
+        and returns the generated unit tests.
+
+        Returns:
+            str: The generated unit tests as a string.
+        """
         prompt = self.__create_prompt()
         self.console.print(f"[cyan]Sending request to {self.model.value}...")
+        self.console.print(f"{prompt}")
         result = self.generator.generate(prompt)
         self.console.print(f"[green]Received response from {self.model.value}")
         return result

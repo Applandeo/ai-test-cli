@@ -38,12 +38,16 @@ class TestProcessor:
         context_contents = self.__read_context_files() if self.context_paths else None
 
         self.progress.update(task, description=f"[cyan]Generating tests using {self.model.value}...", advance=10)
-        processed_content = self.__process_with_llm(content, example, context_contents, self.instruction)
+        try:
+            processed_content = self.__process_with_llm(content, example, context_contents, self.instruction)
+            self.progress.update(task, description="[cyan]Outputting result...", advance=50)
+            self.__output_result(processed_content)
+            self.progress.update(task, description="[green]Processing complete!", advance=10)
 
-        self.progress.update(task, description="[cyan]Outputting result...", advance=50)
-        self.__output_result(processed_content)
-
-        self.progress.update(task, description="[green]Processing complete!", advance=10)
+        except Exception as e:
+            self.progress.update(task, description="[bold red]Error!", advance=60)
+            self.console.print(
+                Panel(f"[bold red]Error generating tests:[/bold red] {str(e)}", title="Processing Error", expand=False))
 
     def __read_file(self, file_path: Path) -> str:
         try:
