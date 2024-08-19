@@ -4,14 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="f57dff47-9525-4f96-bc1f-2c4521092eb3" name="Changes" comment="Add sample kotlin and swift classes">
-      <change afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
+    <list default="true" id="f57dff47-9525-4f96-bc1f-2c4521092eb3" name="Changes" comment="Add README.md + Update params">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/poetry.lock" beforeDir="false" afterPath="$PROJECT_DIR$/poetry.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pyproject.toml" beforeDir="false" afterPath="$PROJECT_DIR$/pyproject.toml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/test_generator/generator.py" beforeDir="false" afterPath="$PROJECT_DIR$/test_generator/generator.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/test_generator/generators.py" beforeDir="false" afterPath="$PROJECT_DIR$/test_generator/generators.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/test_generator/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/test_generator/main.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/test_generator/test_processor.py" beforeDir="false" afterPath="$PROJECT_DIR$/test_generator/test_processor.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -44,7 +40,7 @@
   "keyToString": {
     "Python.Clock.kt -i \"Use kotlin.test\" \"Use mockative for mocks\" \"Include property-based tests\".executor": "Debug",
     "Python.main (1).executor": "Debug",
-    "Python.main.executor": "Debug",
+    "Python.main.executor": "Run",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "git-widget-placeholder": "contextual__code",
     "node.js.detected.package.eslint": "true",
@@ -100,7 +96,7 @@
       <option name="ADD_SOURCE_ROOTS" value="true" />
       <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
       <option name="SCRIPT_NAME" value="$PROJECT_DIR$/test_generator/main.py" />
-      <option name="PARAMETERS" value="" />
+      <option name="PARAMETERS" value="&quot;$PROJECT_DIR$/../../ios-base/clients-multiplatform-base/shared/src/commonMain/kotlin/ch/beekeeper/clients/shared/sdk/components/offline/error/OfflineSyncErrorHandler.kt&quot; -m ollama -e &quot;$PROJECT_DIR$/../../ios-base/clients-multiplatform-base/shared/src/commonTest/kotlin/ch/beekeeper/clients/shared/sdk/components/offline/usecase/ProcessOfflineManifestUseCaseTest.kt&quot; -c &quot;$PROJECT_DIR$/../../ios-base/clients-multiplatform-base/shared/src/commonMain/kotlin/ch/beekeeper/clients/shared/sdk/CoroutinesScopeProviderType.kt&quot; &quot;$PROJECT_DIR$/../../ios-base/clients-multiplatform-base/shared/src/commonMain/kotlin/ch/beekeeper/clients/shared/sdk/utils/clock/Clock.kt&quot; -i &quot;Use kotlin.test&quot; &quot;Use mockative for mocks&quot; &quot;Include property-based tests&quot;" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
       <option name="MODULE_MODE" value="false" />
@@ -172,7 +168,10 @@
       <workItem from="1722974135799" duration="3141000" />
       <workItem from="1723025764420" duration="658000" />
       <workItem from="1723186200682" duration="8971000" />
-      <workItem from="1723705821632" duration="15152000" />
+      <workItem from="1723705821632" duration="15924000" />
+      <workItem from="1723787953190" duration="2515000" />
+      <workItem from="1724044976579" duration="1208000" />
+      <workItem from="1724089190654" duration="3445000" />
     </task>
     <task id="LOCAL-00001" summary="Project init">
       <option name="closed" value="true" />
@@ -206,7 +205,15 @@
       <option name="project" value="LOCAL" />
       <updated>1723214026402</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="Add README.md + Update params">
+      <option name="closed" value="true" />
+      <created>1723732281897</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1723732281897</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -228,36 +235,22 @@
     <MESSAGE value="Add sample test functions" />
     <MESSAGE value="Code cleanup" />
     <MESSAGE value="Add sample kotlin and swift classes" />
-    <option name="LAST_COMMIT_MESSAGE" value="Add sample kotlin and swift classes" />
+    <MESSAGE value="Add README.md + Update params" />
+    <option name="LAST_COMMIT_MESSAGE" value="Add README.md + Update params" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
       <breakpoints>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
           <url>file://$PROJECT_DIR$/test_generator/generators.py</url>
-          <line>185</line>
-          <option name="timeStamp" value="13" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
-          <url>file://$PROJECT_DIR$/test_generator/generators.py</url>
-          <line>188</line>
-          <option name="timeStamp" value="14" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
-          <url>file://$PROJECT_DIR$/test_generator/generator.py</url>
-          <line>170</line>
-          <option name="timeStamp" value="16" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
-          <url>file://$PROJECT_DIR$/test_generator/test_processor.py</url>
-          <line>41</line>
-          <option name="timeStamp" value="17" />
+          <line>168</line>
+          <option name="timeStamp" value="22" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
     <SUITE FILE_PATH="coverage/TestsCLI$main__1_.coverage" NAME="main Coverage Results" MODIFIED="1722975914551" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/test_generator" />
-    <SUITE FILE_PATH="coverage/TestsCLI$main.coverage" NAME="main Coverage Results" MODIFIED="1723732017270" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/test_generator" />
+    <SUITE FILE_PATH="coverage/TestsCLI$main.coverage" NAME="main Coverage Results" MODIFIED="1724092747618" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/test_generator" />
   </component>
 </project>

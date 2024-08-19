@@ -1,6 +1,6 @@
 import textwrap
 from enum import Enum
-from typing import Optional
+from typing import Optional, List
 
 from rich.console import Console
 
@@ -35,8 +35,8 @@ class Generator:
 
     def __init__(self, console: Console,
                  class_code: str,
-                 context_code: [str] = None,
-                 instruction: str = None,
+                 context_code: List[str] = None,
+                 instruction: List[str] = None,
                  sample: Optional[str] = None,
                  model: ModelType = ModelType.SONNET):
         """
@@ -46,7 +46,7 @@ class Generator:
             console (Console): Rich console for output formatting.
             class_code (str): The code of the class for which tests are to be generated.
             context_code (List[str], optional): Additional contextual code. Defaults to None.
-            instruction (str, optional): Additional instructions for test generation. Defaults to None.
+            instruction (List[str], optional): Additional instructions for test generation. Defaults to None.
             sample (str, optional): An example of existing unit tests. Defaults to None.
             model (ModelType, optional): The AI model to use. Defaults to ModelType.SONNET.
         """
@@ -54,7 +54,7 @@ class Generator:
         self.class_code = class_code
         self.context_code = "\n".join(context_code) if context_code else "No contextual code provided."
         self.sample = sample or "No example provided."
-        self.instruction = instruction or "No additional instruction provided."
+        self.instruction = ", ".join(instruction) or "No additional instruction provided."
         self.model = model
         self.settings = Settings()
         self.generator = self.__get_generator()
@@ -169,7 +169,6 @@ class Generator:
         """
         prompt = self.__create_prompt()
         self.console.print(f"[cyan]Sending request to {self.model.value}...")
-        self.console.print(f"{prompt}")
         result = self.generator.generate(prompt)
         self.console.print(f"[green]Received response from {self.model.value}")
         return result

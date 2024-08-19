@@ -15,8 +15,10 @@ class TestProcessor:
                  input_path: Path,
                  example_path: Optional[Path],
                  context_paths: List[Path],
-                 instruction: str, output_path: Optional[Path],
-                 model: ModelType, progress: Progress):
+                 instruction: List[str],
+                 output_path: Optional[Path],
+                 model: ModelType,
+                 progress: Progress):
         self.console = console
         self.input_path = input_path
         self.example_path = example_path
@@ -70,8 +72,10 @@ class TestProcessor:
                 context_contents.append(content)
         return context_contents
 
-    def __process_with_llm(self, content: str, example: str, context_contents: List[str], instruction: str) -> str:
-        test_generator = Generator(self.console, content, example, context_contents, instruction, self.model)
+    def __process_with_llm(self, content: str, example: str, context_contents: List[str],
+                           instruction: List[str]) -> str:
+        test_generator = Generator(self.console, class_code=content, context_code=context_contents,
+                                   instruction=instruction, sample=example, model=self.model)
         return test_generator.generate_tests()
 
     def __output_result(self, processed_content: str):

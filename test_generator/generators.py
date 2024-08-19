@@ -159,15 +159,14 @@ class OllamaTestGenerator(TestGenerator):
         return False
 
     @staticmethod
-    def __check_ollama_installed() -> None:
+    def __check_ollama_installed() -> bool:
         """
         Check if Ollama is installed.
 
         Raises:
             SystemExit: If Ollama is not installed.
         """
-        if importlib.util.find_spec("ollama") is None:
-            sys.exit(1)
+        return importlib.util.find_spec("ollama") is not None
 
     def generate(self, prompt: str) -> str:
         """
