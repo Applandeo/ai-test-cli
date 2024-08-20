@@ -4,10 +4,12 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="f57dff47-9525-4f96-bc1f-2c4521092eb3" name="Changes" comment="Add README.md + Update params">
+    <list default="true" id="f57dff47-9525-4f96-bc1f-2c4521092eb3" name="Changes" comment="Fix generating complex tests">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/test_generator/generator.py" beforeDir="false" afterPath="$PROJECT_DIR$/test_generator/generator.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/test_generator/generators.py" beforeDir="false" afterPath="$PROJECT_DIR$/test_generator/generators.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/test_generator/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/test_generator/main.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/test_generator/test_processor.py" beforeDir="false" afterPath="$PROJECT_DIR$/test_generator/test_processor.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -36,21 +38,21 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "Python.Clock.kt -i \"Use kotlin.test\" \"Use mockative for mocks\" \"Include property-based tests\".executor": "Debug",
-    "Python.main (1).executor": "Debug",
-    "Python.main.executor": "Run",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "git-widget-placeholder": "contextual__code",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "nodejs_package_manager_path": "npm",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;Python.Clock.kt -i \&quot;Use kotlin.test\&quot; \&quot;Use mockative for mocks\&quot; \&quot;Include property-based tests\&quot;.executor&quot;: &quot;Debug&quot;,
+    &quot;Python.main (1).executor&quot;: &quot;Debug&quot;,
+    &quot;Python.main.executor&quot;: &quot;Run&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;contextual__code&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$" />
@@ -171,7 +173,8 @@
       <workItem from="1723705821632" duration="15924000" />
       <workItem from="1723787953190" duration="2515000" />
       <workItem from="1724044976579" duration="1208000" />
-      <workItem from="1724089190654" duration="3445000" />
+      <workItem from="1724089190654" duration="4926000" />
+      <workItem from="1724170519026" duration="2331000" />
     </task>
     <task id="LOCAL-00001" summary="Project init">
       <option name="closed" value="true" />
@@ -213,7 +216,15 @@
       <option name="project" value="LOCAL" />
       <updated>1723732281897</updated>
     </task>
-    <option name="localTasksCounter" value="6" />
+    <task id="LOCAL-00006" summary="Fix generating complex tests">
+      <option name="closed" value="true" />
+      <created>1724093032385</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1724093032385</updated>
+    </task>
+    <option name="localTasksCounter" value="7" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -236,14 +247,15 @@
     <MESSAGE value="Code cleanup" />
     <MESSAGE value="Add sample kotlin and swift classes" />
     <MESSAGE value="Add README.md + Update params" />
-    <option name="LAST_COMMIT_MESSAGE" value="Add README.md + Update params" />
+    <MESSAGE value="Fix generating complex tests" />
+    <option name="LAST_COMMIT_MESSAGE" value="Fix generating complex tests" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
       <breakpoints>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
           <url>file://$PROJECT_DIR$/test_generator/generators.py</url>
-          <line>168</line>
+          <line>200</line>
           <option name="timeStamp" value="22" />
         </line-breakpoint>
       </breakpoints>
@@ -251,6 +263,6 @@
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
     <SUITE FILE_PATH="coverage/TestsCLI$main__1_.coverage" NAME="main Coverage Results" MODIFIED="1722975914551" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/test_generator" />
-    <SUITE FILE_PATH="coverage/TestsCLI$main.coverage" NAME="main Coverage Results" MODIFIED="1724092747618" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/test_generator" />
+    <SUITE FILE_PATH="coverage/TestsCLI$main.coverage" NAME="main Coverage Results" MODIFIED="1724092772580" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/test_generator" />
   </component>
 </project>

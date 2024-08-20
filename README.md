@@ -27,6 +27,34 @@ Before using the tool, you need to set up your API keys:
 
 You can set these environment variables in your shell or use a `.env` file in your project directory.
 
+### Installing Ollama for Local Model Usage
+
+If you want to use the local model option with Ollama, you need to install Ollama separately. Follow these steps:
+
+1. Visit the official Ollama website: [https://ollama.ai/](https://ollama.ai/)
+
+2. Download the appropriate version for your operating system:
+   - For macOS: [Download](https://ollama.com/download/mac) the .dmg file and follow the installation prompts
+   - For Linux: Use the following command in your terminal:
+     ```
+     curl https://ollama.ai/install.sh | sh
+     ```
+   - For Windows: Visit the [Ollama](https://ollama.com/download/windows) website for instructions
+
+3. After installation, you need to pull the Codestral model. Open a terminal and run:
+   ```
+   ollama pull codestral
+   ```
+
+4. Once the model is downloaded, you can start the Ollama service:
+   ```
+   ollama serve
+   ```
+
+5. Keep the Ollama service running in the background while using the Test Generator CLI with the `ollama` model option.
+
+Please note that the Codestral model requires significant computational resources. Ensure your system meets the necessary requirements before attempting to use it.
+
 ## Usage
 
 After installation, you can use the tool from the command line:
@@ -60,6 +88,11 @@ test-generator <input_file> [options]
    test-generator my_code.py -c utils.py constants.py -i "Use pytest" "Include property-based tests"
    ```
 
+4. Generate tests using the local Codestral model:
+   ```
+   test-generator my_code.py -m ollama
+   ```
+
 ## Supported Models
 
 - `sonnet3.5`: Anthropic's [Claude 3.5 Sonnet](https://www.anthropic.com/news/claude-3-5-sonnet)
@@ -77,6 +110,12 @@ When using the Ollama option, Test Generator CLI currently utilizes the Codestra
 - Due to these constraints, Codestral is not suitable for everyday use in production projects.
 
 Please ensure your system meets the necessary requirements before attempting to use the Ollama option with the Codestral model.
+
+## AI-Assisted Development
+
+It's worth noting that a significant portion of the code for this project, including core functionality and documentation, was generated with the assistance of the Claude 3.5 Sonnet AI model. This AI-powered approach allowed for rapid development and comprehensive documentation of the Test Generator CLI tool.
+
+The use of AI in the development process showcases the potential of AI-assisted coding and serves as a practical example of how the Test Generator CLI itself can be utilized in real-world scenarios.
 
 ## Contributing
 

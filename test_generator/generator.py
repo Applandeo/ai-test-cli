@@ -9,7 +9,14 @@ from test_generator.settings import Settings
 
 
 class ModelType(Enum):
-    """Enum representing different AI model types for test generation."""
+    """
+    Enumeration representing different AI model types for test generation.
+
+    Attributes:
+        SONNET (str): Represents the Claude 3.5 Sonnet model.
+        GPT4 (str): Represents the GPT-4o model.
+        OLLAMA (str): Represents the Codestral model.
+    """
     SONNET = "sonnet3.5"
     GPT4 = "gpt4o"
     OLLAMA = "ollama"
@@ -20,14 +27,14 @@ class Generator:
     A class to generate unit tests for a given class using various AI models.
 
     This class encapsulates the logic for creating prompts and generating unit tests
-    using different AI models such as Anthropic's Claude 3 Sonnet, OpenAI's GPT-4o, or Ollama.
+    using different AI models such as Anthropic's Claude 3 Sonnet, OpenAI's GPT-4o, or Ollama(Codestral).
 
     Attributes:
         console (Console): Rich console for output formatting.
         class_code (str): The code of the class for which tests are to be generated.
-        context_code (str): Additional contextual code to understand the class.
+        context_code (List[str]): Additional contextual code to understand the class.
         sample (str): An optional sample of existing unit tests to guide the style.
-        instruction (str): Additional instructions for test generation.
+        instruction (List[str]): Additional instructions for test generation.
         model (ModelType): The AI model to use for generation.
         settings (Settings): Configuration settings for API keys and other parameters.
         generator (TestGenerator): The specific test generator based on the chosen model.
@@ -62,6 +69,9 @@ class Generator:
     def __get_generator(self) -> TestGenerator:
         """
         Create and return the appropriate TestGenerator based on the selected model.
+
+        This method initializes and returns the specific TestGenerator subclass
+        corresponding to the chosen AI model.
 
         Returns:
             TestGenerator: An instance of the appropriate TestGenerator subclass.

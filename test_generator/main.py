@@ -1,3 +1,21 @@
+"""
+Main script for the Test Generator project.
+
+This script provides a command-line interface for generating unit tests
+using various Language Learning Models (LLMs). It processes input files,
+applies the specified LLM model, and outputs the generated tests.
+
+Usage:
+    python main.py <input_path> [options]
+
+Options:
+    -o, --output     Path to the output file (optional)
+    -m, --model      LLM model to use (default: sonnet3.5)
+    -e, --example    Path to the example test file (optional)
+    -c, --context    List of paths to context files
+    -i, --instruction Additional instructions for test generation
+"""
+
 import argparse
 import sys
 from pathlib import Path

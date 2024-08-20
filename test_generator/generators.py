@@ -11,7 +11,12 @@ from openai import OpenAI
 
 
 class CodeNotFoundException(Exception):
-    """Exception raised when no code is found in the API response."""
+    """
+    Exception raised when no code is found in the API response.
+
+    This exception is typically raised when parsing the response from an AI service
+    and no code block is found in the expected format.
+    """
     pass
 
 
@@ -19,13 +24,16 @@ class TestGenerator(ABC):
     """
     Abstract base class for test generators.
 
-    This class defines the interface for all test generators.
+    This class defines the interface for all test generators. Concrete implementations
+    should inherit from this class and implement the generate method.
     """
 
     @abstractmethod
     def generate(self, prompt: str) -> str:
         """
         Generate tests based on the given prompt.
+
+        This abstract method should be implemented by all concrete test generator classes.
 
         Args:
             prompt (str): The prompt to generate tests from.
@@ -39,6 +47,9 @@ class TestGenerator(ABC):
 class AnthropicTestGenerator(TestGenerator):
     """
     Test generator using Anthropic's API.
+
+    This class implements the TestGenerator interface for Anthropic's AI service.
+    It uses the Anthropic API to generate unit tests based on the given prompt.
     """
 
     def __init__(self, api_key: str):
@@ -53,6 +64,9 @@ class AnthropicTestGenerator(TestGenerator):
     def generate(self, prompt: str) -> str:
         """
         Generate tests using Anthropic's API.
+
+        This method sends the prompt to Anthropic's API and processes the response
+        to extract the generated code.
 
         Args:
             prompt (str): The prompt to generate tests from.
@@ -78,17 +92,20 @@ class AnthropicTestGenerator(TestGenerator):
     @staticmethod
     def __extract_code_from_message(content: List[Any]) -> str:
         """
-        Extract code from the API response.
+         Extract code from the API response.
 
-        Args:
-            content (List[Any]): The content of the API response.
+         This method parses the content returned by Anthropic's API and extracts
+         the code block.
 
-        Returns:
-            str: The extracted code.
+         Args:
+             content (List[Any]): The content of the API response.
 
-        Raises:
-            CodeNotFoundException: If no code is found in the content.
-        """
+         Returns:
+             str: The extracted code.
+
+         Raises:
+             CodeNotFoundException: If no code is found in the content.
+         """
         for block in content:
             if block.type == "text":
                 return block.text.strip()
@@ -98,6 +115,9 @@ class AnthropicTestGenerator(TestGenerator):
 class OpenAITestGenerator(TestGenerator):
     """
     Test generator using OpenAI's API.
+
+    This class implements the TestGenerator interface for OpenAI's service.
+    It uses the OpenAI API to generate unit tests based on the given prompt.
     """
 
     def __init__(self, api_key: str, organization: str):
@@ -113,6 +133,9 @@ class OpenAITestGenerator(TestGenerator):
     def generate(self, prompt: str) -> str:
         """
         Generate tests using OpenAI's API.
+
+        This method sends the prompt to OpenAI's API and processes the response
+        to extract the generated code.
 
         Args:
             prompt (str): The prompt to generate tests from.
@@ -134,6 +157,9 @@ class OpenAITestGenerator(TestGenerator):
 class OllamaTestGenerator(TestGenerator):
     """
     Test generator using Ollama.
+
+    This class implements the TestGenerator interface for Ollama.
+    It uses Ollama(Codestral) to generate unit tests based on the given prompt.
     """
 
     def __init__(self, model: str = 'codestral'):
@@ -141,18 +167,21 @@ class OllamaTestGenerator(TestGenerator):
         Initialize the Ollama test generator.
 
         Args:
-            model (str, optional): The Ollama model to use. Defaults to 'codestral'.
+            model (str, optional): The model to use. Defaults to 'codestral'.
         """
         self.model = model
 
     @staticmethod
     def __is_ollama_running() -> bool:
         """
-        Check if Ollama is running.
+         Check if Ollama is running.
 
-        Returns:
-            bool: True if Ollama is running, False otherwise.
-        """
+         This method checks the system's running processes to determine if
+         Ollama is currently active.
+
+         Returns:
+             bool: True if Ollama is running, False otherwise.
+         """
         for process in psutil.process_iter(['name']):
             if process.name() == 'ollama':
                 return True
@@ -163,14 +192,20 @@ class OllamaTestGenerator(TestGenerator):
         """
         Check if Ollama is installed.
 
-        Raises:
-            SystemExit: If Ollama is not installed.
+        This method checks if the Ollama package is installed in the current
+        Python environment.
+
+        Returns:
+            bool: True if Ollama is installed, False otherwise.
         """
         return importlib.util.find_spec("ollama") is not None
 
     def generate(self, prompt: str) -> str:
         """
         Generate tests using Ollama.
+
+        This method checks if Ollama is installed and running, then uses it to
+        generate unit tests based on the given prompt.
 
         Args:
             prompt (str): The prompt to generate tests from.
