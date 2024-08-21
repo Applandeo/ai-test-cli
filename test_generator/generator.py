@@ -1,6 +1,6 @@
 import textwrap
 from enum import Enum
-from typing import Optional, List
+from typing import Optional, List, Union
 
 from rich.console import Console
 
@@ -42,8 +42,8 @@ class Generator:
 
     def __init__(self, console: Console,
                  class_code: str,
-                 context_code: List[str] = None,
-                 instruction: List[str] = None,
+                 context_code: Union[List[str], str, None] = None,
+                 instruction: Union[List[str], str, None] = None,
                  sample: Optional[str] = None,
                  model: ModelType = ModelType.SONNET):
         """
@@ -59,12 +59,32 @@ class Generator:
         """
         self.console = console
         self.class_code = class_code
-        self.context_code = "\n".join(context_code) if context_code else "No contextual code provided."
+        self.context_code = self._process_input(context_code, "\n", "No contextual code provided.")
+        self.instruction = self._process_input(instruction, ", ", "No additional instruction provided.")
         self.sample = sample or "No example provided."
-        self.instruction = ", ".join(instruction) or "No additional instruction provided."
         self.model = model
         self.settings = Settings()
         self.generator = self.__get_generator()
+
+    @staticmethod
+    def _process_input(input_data: Union[List[str], str, None],
+                       separator: str, default: str) -> str:
+        """
+        Process input data, handling different types consistently.
+
+        Args:
+            input_data: The input data to process.
+            separator: The separator to use when joining list elements.
+            default: The default value to return if input is empty or None.
+
+        Returns:
+            Processed string representation of the input.
+        """
+        if isinstance(input_data, list) and input_data:
+            return separator.join(input_data)
+        elif isinstance(input_data, str) and input_data.strip():
+            return input_data
+        return default
 
     def __get_generator(self) -> TestGenerator:
         """
