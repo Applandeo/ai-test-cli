@@ -6,7 +6,9 @@ build-backend = "poetry.core.masonry.api"
 name = "testscli"
 version = "0.1.0"
 description = "A CLI tool for generating unit tests"
-authors = ["Mateusz Sawa <mateusz.sawa@applandeo.pl>"]
+authors = ["Mateusz Sawa <mateusz.sawa@applandeo.pl>", "Patryk Matwijczuk <patryk.matwijczuk@applandeo.pl>"]
+readme = "README.md"
+repository = "https://github.com/your-username/your-application"
 classifiers = [
     "Programming Language :: Python :: 3",
     "License :: OSI Approved :: MIT License",
