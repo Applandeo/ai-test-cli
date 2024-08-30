@@ -60,7 +60,7 @@ Please note that the Codestral model requires significant computational resource
 After installation, you can use the tool from the command line:
 
 ```
-test-generator <input_file> [options]
+ai-test-generator <input_file> [options]
 ```
 
 ### Options:
@@ -75,22 +75,22 @@ test-generator <input_file> [options]
 
 1. Generate tests for a Python file using the default model (Claude 3.5 Sonnet):
    ```
-   test-generator my_code.py
+   ai-test-generator my_code.py
    ```
 
 2. Generate tests using GPT-4o, with an example and output to a file:
    ```
-   test-generator my_code.py -m gpt4o -e example_test.py -o generated_test.py
+   ai-test-generator my_code.py -m gpt4o -e example_test.py -o generated_test.py
    ```
 
 3. Generate tests with additional context and instructions:
    ```
-   test-generator my_code.py -c utils.py constants.py -i "Use pytest" "Include property-based tests"
+   ai-test-generator my_code.py -c utils.py constants.py -i "Use pytest" "Include property-based tests"
    ```
 
 4. Generate tests using the local Codestral model:
    ```
-   test-generator my_code.py -m ollama
+   ai-test-generator my_code.py -m ollama
    ```
 
 ## Supported Models

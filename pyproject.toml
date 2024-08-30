@@ -3,7 +3,7 @@ requires = ["poetry-core"]
 build-backend = "poetry.core.masonry.api"
 
 [tool.poetry]
-name = "testscli"
+name = "ai-test-generator"
 version = "0.1.0"
 description = "A CLI tool for generating unit tests"
 authors = ["Mateusz Sawa <mateusz.sawa@applandeo.pl>", "Patryk Matwijczuk <patryk.matwijczuk@applandeo.pl>"]
@@ -19,7 +19,7 @@ packages = [
 ]
 
 [tool.poetry.dependencies]
-python = "^3.12"
+python = ">=3.12,<4.0"
 openai = "^1.35.15"
 anthropic = "^0.31.2"
 ollama = "^0.3.0"
@@ -28,4 +28,4 @@ rich = "^13.7.1"
 psutil = "^6.0.0"
 
 [tool.poetry.scripts]
-test-generator = "test_generator.main:main"
+ai-test-generator = "test_generator.main:main"

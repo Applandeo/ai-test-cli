@@ -57,8 +57,8 @@ def main():
                         f"Model: [bold]{args.model.value}[/bold]\n"
                         f"Output: [bold]{output_path or 'Clipboard'}[/bold]\n"
                         f"Example: [bold]{example_path or 'Not provided'}[/bold]\n"
-                        f"Context files: [bold]{'\n'.join(str(p) for p in context_paths) or 'Not provided'}[/bold]"
-                        f"Instruction: [bold]{instruction or 'Not provided'}[/bold]\n",
+                        f"Context files: [bold]{'\n'.join(str(p) for p in context_paths) or 'Not provided'}[/bold]\n"
+                        f"Instruction: [bold]{instruction or 'Not provided'}[/bold]",
                         title="File Processing", expand=False))
 
     try:
