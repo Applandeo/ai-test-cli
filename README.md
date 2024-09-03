@@ -93,6 +93,34 @@ ai-test-generator <input_file> [options]
    ai-test-generator my_code.py -m ollama
    ```
 
+## Demo
+
+Here's a quick demonstration of how the Test Generator CLI works:
+
+![Test Generator CLI Demo](/images/cli-test.gif)
+
+This GIF showcases the tool in action, demonstrating its user interface, command-line options, and the process of generating tests.
+
+## Using the Prompt Directly
+
+If you prefer not to use our CLI tool, you can still benefit from our carefully crafted prompt by using it directly in AI chat interfaces like ChatGPT or Claude. Here's how:
+
+1. Visit the prompt in our GitHub repository: [Test Generator Prompt](https://github.com/Applandeo/ai-test-cli/blob/main/test_generator/generator.py#L124)
+
+2. Copy the prompt text.
+
+3. Paste the prompt into your preferred AI chat interface (e.g., ChatGPT, Claude).
+
+4. Replace the placeholders in the prompt with your specific information:
+   - `{class_code}`: Your actual code that needs tests
+   - `{sample}`: An example of your preferred testing style (optional)
+   - `{context_code}`: Any additional context code (optional)
+   - `{instruction}`: Any specific instructions for test generation (optional)
+
+5. Send the message and the AI will generate tests based on your input.
+
+This method allows you to leverage the power of our prompt without using the CLI tool, giving you flexibility in how you generate your tests.
+
 ## Supported Models
 
 - `sonnet3.5`: Anthropic's [Claude 3.5 Sonnet](https://www.anthropic.com/news/claude-3-5-sonnet)

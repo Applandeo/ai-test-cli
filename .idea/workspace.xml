@@ -5,13 +5,10 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="f57dff47-9525-4f96-bc1f-2c4521092eb3" name="Changes" comment="Fix generating complex tests">
-      <change afterPath="$PROJECT_DIR$/tests/class_with_dependencies/login_usecase.dart" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/tests/simple_class/password_validator.dart" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/tests/simple_function/list_extension.dart" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/tests/simple_throw_function/int_extensions.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/LICENSE.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/images/cli-test.gif" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/test_generator/settings.py" beforeDir="false" afterPath="$PROJECT_DIR$/test_generator/settings.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -53,7 +50,8 @@
     "Python.main (1).executor": "Debug",
     "Python.main.executor": "Run",
     "RunOnceActivity.ShowReadmeOnStart": "true",
-    "git-widget-placeholder": "contextual__code",
+    "git-widget-placeholder": "main",
+    "last_opened_file_path": "/Users/mateuszsawa/projects/ai-test-cli",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
@@ -64,11 +62,11 @@
 }]]></component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/images" />
       <recent name="$PROJECT_DIR$/tests/simple_throw_function" />
       <recent name="$PROJECT_DIR$/tests/simple_function" />
       <recent name="$PROJECT_DIR$/tests/simple_class" />
       <recent name="$PROJECT_DIR$/tests/class_with_dependencies" />
-      <recent name="$PROJECT_DIR$" />
     </key>
   </component>
   <component name="RunManager" selected="Python.main">
@@ -86,7 +84,7 @@
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
       <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
-      <option name="SCRIPT_NAME" value="test-generator $PROJECT_DIR$/../../ios-base/clients-multiplatform-base/shared/src/commonMain/kotlin/ch/beekeeper/clients/shared/sdk/components/offline/error/OfflineSyncErrorHandler.kt -c $PROJECT_DIR$/../../ios-base/clients-multiplatform-base/shared/src/commonMain/kotlin/ch/beekeeper/clients/shared/sdk/CoroutinesScopeProviderType.kt $PROJECT_DIR$/../../ios-base/clients-multiplatform-base/shared/src/commonMain/kotlin/ch/beekeeper/clients/shared/sdk/utils/clock/Clock.kt -i &quot;Use kotlin.test&quot; &quot;Use mockative for mocks&quot; &quot;Include property-based tests&quot;" />
+      <option name="SCRIPT_NAME" value="test-generator $USER_HOME$/ios-base/clients-multiplatform-base/shared/src/commonMain/kotlin/ch/beekeeper/clients/shared/sdk/components/offline/error/OfflineSyncErrorHandler.kt -c $USER_HOME$/ios-base/clients-multiplatform-base/shared/src/commonMain/kotlin/ch/beekeeper/clients/shared/sdk/CoroutinesScopeProviderType.kt $USER_HOME$/ios-base/clients-multiplatform-base/shared/src/commonMain/kotlin/ch/beekeeper/clients/shared/sdk/utils/clock/Clock.kt -i &quot;Use kotlin.test&quot; &quot;Use mockative for mocks&quot; &quot;Include property-based tests&quot;" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -110,7 +108,7 @@
       <option name="ADD_SOURCE_ROOTS" value="true" />
       <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
       <option name="SCRIPT_NAME" value="$PROJECT_DIR$/test_generator/main.py" />
-      <option name="PARAMETERS" value="&quot;$PROJECT_DIR$/../../ios-base/clients-multiplatform-base/shared/src/commonMain/kotlin/ch/beekeeper/clients/shared/sdk/components/offline/error/OfflineSyncErrorHandler.kt&quot; -m sonnet3.5 -e &quot;$PROJECT_DIR$/../../ios-base/clients-multiplatform-base/shared/src/commonTest/kotlin/ch/beekeeper/clients/shared/sdk/components/offline/usecase/ProcessOfflineManifestUseCaseTest.kt&quot; -c &quot;$PROJECT_DIR$/../../ios-base/clients-multiplatform-base/shared/src/commonMain/kotlin/ch/beekeeper/clients/shared/sdk/CoroutinesScopeProviderType.kt&quot; &quot;$PROJECT_DIR$/../../ios-base/clients-multiplatform-base/shared/src/commonMain/kotlin/ch/beekeeper/clients/shared/sdk/utils/clock/Clock.kt&quot; -i &quot;Use kotlin.test&quot; &quot;Use mockative for mocks&quot; &quot;Include property-based tests&quot;" />
+      <option name="PARAMETERS" value="&quot;$USER_HOME$/ios-base/clients-multiplatform-base/shared/src/commonMain/kotlin/ch/beekeeper/clients/shared/sdk/components/offline/error/OfflineSyncErrorHandler.kt&quot; -m sonnet3.5 -e &quot;$USER_HOME$/ios-base/clients-multiplatform-base/shared/src/commonTest/kotlin/ch/beekeeper/clients/shared/sdk/components/offline/usecase/ProcessOfflineManifestUseCaseTest.kt&quot; -c &quot;$USER_HOME$/ios-base/clients-multiplatform-base/shared/src/commonMain/kotlin/ch/beekeeper/clients/shared/sdk/CoroutinesScopeProviderType.kt&quot; &quot;$USER_HOME$/ios-base/clients-multiplatform-base/shared/src/commonMain/kotlin/ch/beekeeper/clients/shared/sdk/utils/clock/Clock.kt&quot; -i &quot;Use kotlin.test&quot; &quot;Use mockative for mocks&quot; &quot;Include property-based tests&quot;" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
       <option name="MODULE_MODE" value="false" />
@@ -155,7 +153,8 @@
   <component name="SharedIndexes">
     <attachedChunks>
       <set>
-        <option value="bundled-python-sdk-09665e90c3a7-b11f5e8da5ad-com.jetbrains.pycharm.pro.sharedIndexes.bundled-PY-233.15026.15" />
+        <option value="bundled-js-predefined-d6986cc7102b-410509235cf1-JavaScript-PY-242.20224.428" />
+        <option value="bundled-python-sdk-80e8e15d2b92-39cff9de6eef-com.jetbrains.pycharm.pro.sharedIndexes.bundled-PY-242.20224.428" />
       </set>
     </attachedChunks>
   </component>
@@ -188,6 +187,7 @@
       <workItem from="1724170519026" duration="2962000" />
       <workItem from="1724234906968" duration="21000" />
       <workItem from="1724261121375" duration="1987000" />
+      <workItem from="1725391155251" duration="1785000" />
     </task>
     <task id="LOCAL-00001" summary="Project init">
       <option name="closed" value="true" />
