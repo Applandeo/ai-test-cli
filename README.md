@@ -1,6 +1,6 @@
-# Test Generator CLI
+# AI Test Generator CLI
 
-Test Generator CLI is a powerful command-line tool that leverages various AI models to automatically generate unit tests for your code. It supports multiple programming languages and can adapt to your existing testing style.
+AI Test Generator CLI is a powerful command-line tool that leverages various AI models to automatically generate unit tests for your code. It supports multiple programming languages and can adapt to your existing testing style.
 
 ## Features
 
@@ -12,10 +12,10 @@ Test Generator CLI is a powerful command-line tool that leverages various AI mod
 
 ## Installation
 
-Install the Test Generator CLI using pip:
+Install the AI Test Generator CLI using pip:
 
 ```
-pip install test-generator
+pip install ai-test-generator
 ```
 
 ## Configuration

@@ -6,7 +6,10 @@ build-backend = "poetry.core.masonry.api"
 name = "ai-test-generator"
 version = "0.1.0"
 description = "A CLI tool for generating unit tests"
-authors = ["Mateusz Sawa <mateusz.sawa@applandeo.com>", "Patryk Matwijczuk <patryk.matwijczuk@applandeo.com>"]
+authors = [
+    "Mateusz Sawa <mateusz.sawa@applandeo.com>",
+    "Patryk Matwijczuk <patryk.matwijczuk@applandeo.com>"
+]
 readme = "README.md"
 homepage = "https://applandeo.com/"
 repository = "https://github.com/Applandeo/ai-test-cli"
